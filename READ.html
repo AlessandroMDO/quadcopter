@@ -1,0 +1,36 @@
+****************** MANUAL DE INSTRUÇÕES QUAD-CATUPIRY ******************
+<br>
+<br>
+
+- Dentro da pasta V_FINAL encontra-se os arquivos finais da simulação, cujos passos para execução são descritos abaixo.
+<br>
+- As outras pastas, dentro de TENTATIVAS, são as versões anteriores e falhas.
+<br>
+<br>
+
+1. O script principal é o "principal.m". Basta executá-lo.
+<br>
+<br>
+2. TRAJETÓRIA
+<br>
+&nbsp;&nbsp;2.1 Há uma trajetória prévia já montada, contendo a posição das argolas nas quais o drone deve passar.
+<br>
+&nbsp;&nbsp;2.2 É possível montar outras editando o arquivo "trajeto.xlsx", porém também seria necessário alterar a arena e a posição das argolas.
+    No arquivo "trajeto.xlsx" também é possível colocar, além da posição que o drone deve percorrer, os instantes esperados que ele deve atingir esses pontos.
+    Apesar de ser possível colocar quaisquer valores de tempo, foi limitado uma velocidade ângular de 470 rad/s pra cada hélice, então se o drone tiver que ir muito rápido, ele irá ficar instável.
+<br>
+<br>    
+
+3. SIMULINK
+<br>
+&nbsp;&nbsp;3.1 É recomendável que, antes de executar o "principal.m", abra o modelo do Simulink "quad2LQR.slx" e abra o bloco de "Animação", dentro do bloco "Visualização". Após isso, rode o "principal.m" e volte para o bloco de visualização, assim você consegue visualizar a animação enquanto a simulação roda.
+<br>
+&nbsp;&nbsp;3.2 Deixe a animação na visão "Isométrica", assim será mais fácil de ver o drone percorrendo os anéis.
+<br>
+&nbsp;&nbsp;3.3 Há um bloco de scope na primeira tela do Simulink, contendo os gráficos de (x,y,z) e psi.
+<br>
+&nbsp;&nbsp;3.4 Apesar do scope acima indicar sucesso de execução na controlabilidade da variável psi, o drone dentro do ambiente não apresenta guinada. Acredito que isso seja uma configuração do ambiente, e não um erro do simulador, já que é possível ver no scope que o ângulo psi está correto. Trata-se de um bug ou alguma configuração que não conseguimos fazer (já que o ambiente foi desenvolvido por outro grupo).
+<br>
+&nbsp;&nbsp;3.5 Caso aconteça algum erro com o bloco de visualização, isso provavelmente está relacionado com a falta de algum add-on que contenha a função "eul2quat", que faz a conversão dos ângulos de Euler para Quaternios. Isso é resolvido instalado o "Navigation Toolbox" ou "Robotics System Toolbox".
+
+
